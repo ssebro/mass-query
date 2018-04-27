@@ -1,0 +1,19 @@
+{
+  "name": "mass-query",
+  "version": "1.0.0",
+  "description": "Allows bulk queries to a predetermined API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssebro/mass-query.git"
+  },
+  "author": "Stephen Sebro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssebro/mass-query/issues"
+  },
+  "homepage": "https://github.com/ssebro/mass-query"
+}
