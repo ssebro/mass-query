@@ -11,6 +11,7 @@ var csvHeaders = {};
 function handleCSVInputFile() {
 
     var doneFetching = false;
+    showProgressBar();
     var totalRows = 0;
     var totalFetched = 0;
     var files = document.getElementById("myFile").files;
@@ -31,7 +32,6 @@ function handleCSVInputFile() {
                     activelyFetching--;
 
                     totalFetched++;
-
                     if (activelyFetching == REQUEST_LIMIT && pauseCalled) {
                         pauseCalled = false;
                         parser.resume();
@@ -46,6 +46,7 @@ function handleCSVInputFile() {
             },
             error: function (err, file) {
                 alert(JSON.stringify(err));
+                hideProgressBar();
             },
             complete: function () {
                 doneFetching = true;
@@ -189,6 +190,16 @@ function resetDataStructures() {
     queryResultData = [];
     csvHeaders = {};
     document.getElementById('fileUploadContainer').innerHTML = '<input type="file" id="myFile" onchange="handleCSVInputFile()">';
+    hideProgressBar();
+}
+
+function hideProgressBar(){
+    var progressBarContainer = document.getElementById("progressBarContainer");
+    progressBarContainer.classList.add("d-none");
+}
+function showProgressBar(){
+    var progressBarContainer = document.getElementById("progressBarContainer");
+    progressBarContainer.classList.remove("d-none");
 }
 
 function writeFinalCSV() {
